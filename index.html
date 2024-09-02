@@ -1,0 +1,187 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MBTI性格测试</title>
+<script>
+var E=1
+var S=1
+var T=1
+var J=1
+var SJ=0
+var a=1
+var b=0
+var c=0
+var m=20 //题目数量
+function total(){
+	E=(E.split(1)).length-1;
+	S=(S.split(1)).length-1;
+	T=(T.split(1)).length-1;
+	J=(J.split(1)).length-1;
+	if (E>3){E='E外向'}
+	else{E='I内向'};
+	if (S>3){S='S实感'}
+	else{S='N直觉'};
+	if (T>3){T='T思考'}
+	else{T='F情感'};
+	if (J>3){J='J判断'}
+	else{J='P认知'};
+	document.getElementById("test").innerHTML=E+';'+S+';'+T+';'+J
+	}
+function show(){
+	if (a>m){
+	document.getElementById('a'+a).style.display='none';
+	document.getElementById('answer').style.display='block';
+	document.getElementById('fpage').style.display='none';
+	total();
+	}
+	else if (a>4) {
+	document.getElementById('a'+a).style.display='block';
+	document.getElementById('fpage').style.display='block';
+	}
+	else {
+	document.getElementById('a'+a).style.display='block';
+	document.getElementById('fpage').style.display='none';
+	}
+	}
+function jia1(){
+	if (a<=m){
+	if ((a % 4) ==1) {E='1'+E}
+	else if ((a % 4) ==2) {S='1'+S}
+	else if ((a % 4) ==3) {T='1'+T}
+	else {J='1'+J};
+	}
+	document.getElementById('a'+a).style.display='none';
+	++a;
+	show();
+	}
+function jia0(){
+	if (a<=m){
+	if ((a % 4) ==1) {E='0'+E}
+	else if ((a % 4) ==2) {S='0'+S}
+	else if ((a % 4) ==3) {T='0'+T}
+	else {J='0'+J};
+	}
+	document.getElementById('a'+a).style.display='none';
+	++a;
+	show();
+	}
+function plus0(){
+	document.getElementById('a'+a).style.display='none';
+	--a
+	b=a % 4
+	c=parseInt(a / 4)	
+	document.getElementById('a'+a).style.display='block';
+	if (b == 1) {E=E.substring(1)}
+	else if (b == 2) {S=S.substring(1)}
+	else if (b == 3) {T=T.substring(1)}
+	else {J=J.substring(1)}
+	total();
+	show();
+	}
+</script>
+<style>
+body {
+	font-size: 2.5em;
+	width: 25em;
+	text-align: left;
+	background-color: #f0fee7;
+	margin-top: 2em;
+}
+.btn {
+	border: 5px solid #06C;
+	border-radius: 5px;
+	background-color: #39F;
+	color: #FFF;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	width: 4em;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<table width="100%" align="center">
+  <tr>
+    <td id="a1"> 1．你通常<br>
+      A.与人容易混熟。<br>
+      B.比较沉静或矜持。<br></td>
+    <td id="a2" style="display:none;"> 2．假如你是一位老师，你会选教<br>
+      A.以事实为主的课程。<br>
+      B.涉及理论的课程。<br></td>
+    <td id="a3" style="display:none;"> 3．你是否经常让<br>
+      A.你的理智主宰你的情感。<br>
+      B.你的情感支配你的理智。<br></td>
+    <td id="a4" style="display:none;"> 4．当你要外出一整天，你会<br>
+      A.计划你要做什么和在什么时候做。<br>
+      B.说去就去。<br></td>
+    <td id="a5" style="display:none;"> 5．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.坦率开放。<br>
+      B.注重隐私。<br></td>
+    <td id="a6" style="display:none;"> 6．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.具体。<br>
+      B.抽象。<br></td>
+    <td id="a7" style="display:none;">7．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.坚定。<br>
+      B.温柔。<br></td>
+    <td id="a8" style="display:none;"> 8．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.预先安排的。<br>
+      B.无计划的。<br></td>
+    <td id="a9" style="display:none;"> 9．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.外向。<br>
+      B.文静。<br></td>
+    <td id="a10" style="display:none;"> 10．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.肯定。<br>
+      B.理论。<br></td>
+    <td id="a11" style="display:none;"> 11．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.公正。<br>
+      B.敏感。<br></td>
+    <td id="a12" style="display:none;"> 12．在下列每一对词语中，哪一个词语更合你心意？<br>
+      A.有系统。<br>
+      B.随意。<br></td>
+    <td id="a13" style="display:none;"> 13．在社交聚会上，你会<br>
+      A.让别人多说话。<br>
+      B.是说话很多的一个。<br></td>
+    <td id="a14" style="display:none;"> 14．你通常较喜欢的科目是？<br>
+      A.讲授概念和原则的。<br>
+      B.讲授事实和数据的。<br></td>
+    <td id="a15" style="display:none;"> 15．哪个是较高的赞誉，或称许为？<br>
+      A.能干的。<br>
+      B.富有同情心。<br></td>
+    <td id="a16" style="display:none;"> 16．你通常喜欢？<br>
+      A.事先安排你的社交约会。<br>
+      B.随兴之所至做事。<br></td>
+    <td id="a17" style="display:none;"> 17．你是否？<br>
+      A.可以和任何人按需求从容地交谈。<br>
+      B.只是对某些人或在某种情况下才可以畅所欲言。<br></td>
+    <td id="a18" style="display:none;"> 18．下列哪一种说法较适合你？<br>
+      A.真实的。<br>
+      B.想象的。<br></td>
+    <td id="a19" style="display:none;"> 19．下列哪一种说法较适合你？<br>
+      A.意志坚定的。<br>
+      B.仁慈慷慨的。<br></td>
+    <td id="a20" style="display:none;"> 20．总的说来，要做一个大型作业时，你会选<br>
+      A.首先把工作按步细分。<br>
+      B.边做边想该做什么。<br></td>
+  </tr>
+  <tr>
+    <td width="10" id="a21"><br><!--//id=题目数量+1-->
+      <div><input class="btn" type="button" onClick="jia1()" value="A">
+      <input class="btn" type="button" onClick="jia0()" value="B" style=" margin-left:2em;"></div>
+      <div style="width:100%; text-align:left;">
+      <input id="fpage" class="btn" type="button" onClick="plus0()" value="上一页" style=" margin:2em 0;display:none;">
+      </div>
+      </td>
+  </tr>
+  <tr>
+    <td colspan="2" id="answer" style="display:none;" > 你的性格属于：
+      <h3 id="test"></h3></td>
+  </tr>
+  <tr>
+</table>
+<br>
+<br>
+<br>
+<a href="javascript:location.reload();" style="color:#000; text-decoration:none;">重新加载</a>
+</body>
+</html>
